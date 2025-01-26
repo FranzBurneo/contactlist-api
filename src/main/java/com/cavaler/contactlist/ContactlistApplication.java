@@ -2,6 +2,7 @@ package com.cavaler.contactlist;
 
 import com.cavaler.contactlist.entity.Contact;
 import com.cavaler.contactlist.repository.ContactRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -30,5 +31,9 @@ public class ContactlistApplication {
             );
             contactRepository.saveAll(contacts);
         };
-	};
+	}
+	@Bean
+	ModelMapper modelMapper() {
+		return new ModelMapper();
+	}
 }
